@@ -149,7 +149,10 @@ public class OpenAgent {
 
     public static void main(String[] args) throws Throwable {
         Instrumentation instrumentation = AgentRestore.instrumentation;
-        System.out.println(instrumentation);
+        if (instrumentation == null) {
+            throw new ExceptionInInitializerError("Initialize failed: instrumentation not init.");
+        }
+//        System.out.println(instrumentation);
         File config = new File("OpenAgent.conf");
         if (!config.isFile()) {
             try (FileOutputStream fos = new FileOutputStream(config);

@@ -10,6 +10,5 @@ public class AgentRestore {
             Instrumentation instrumentation
     ) {
         AgentRestore.instrumentation = instrumentation;
-        System.out.println("WAX!");
     }
 }
